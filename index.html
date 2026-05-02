@@ -25,15 +25,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 body::after{content:'';position:fixed;top:0;right:0;width:1px;height:100vh;background:linear-gradient(180deg,transparent,var(--gold),transparent);opacity:0.25;z-index:0;}
 .wrap{max-width:1020px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
 
-.top-bar{background:var(–rose);padding:10px 28px;font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:0.13em;color:var(–text);display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
-.top-bar strong{color:#FAC775;}
+.alert-bar{background:var(–rose);padding:10px 28px;font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:0.13em;color:var(–text);display:flex;gap:16px;flex-wrap:wrap;align-items:center;position:sticky;top:0;z-index:100;}
+.alert-bar strong{color:#FAC775;}
 
-.hero{padding:56px 0 46px;border-bottom:1px solid var(–border);}
+.hero{padding:52px 0 42px;border-bottom:1px solid var(–border);}
 .eyebrow{font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:0.32em;color:var(–gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
 .eyebrow::before{content:’’;width:32px;height:1px;background:var(–gold);opacity:0.4;}
 h1{font-family:‘Cormorant Garamond’,serif;font-size:clamp(38px,6.5vw,80px);font-weight:300;line-height:0.93;letter-spacing:-0.02em;margin-bottom:8px;}
 h1 em{font-style:italic;color:var(–gold);}
-.hero-sub{font-family:‘Cormorant Garamond’,serif;font-size:clamp(14px,2vw,20px);font-weight:300;color:var(–text-muted);font-style:italic;margin-bottom:24px;}
+.hero-sub{font-family:‘Cormorant Garamond’,serif;font-size:clamp(14px,2vw,20px);font-weight:300;color:var(–text-muted);font-style:italic;margin-bottom:22px;}
 .pills{display:flex;flex-wrap:wrap;}
 .pill{font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:0.08em;color:var(–text-muted);padding:6px 13px;border:0.5px solid var(–border);display:flex;align-items:center;gap:5px;}
 .pill::before{content:’’;width:5px;height:5px;border-radius:50%;background:var(–gold);flex-shrink:0;}
@@ -41,48 +41,55 @@ h1 em{font-style:italic;color:var(–gold);}
 .pill-warn::before{background:#E07070;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
 
-section{padding:48px 0;border-bottom:1px solid var(–border);}
+section{padding:44px 0;border-bottom:1px solid var(–border);}
 section:last-of-type{border-bottom:none;}
-.slabel{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.28em;color:var(–gold);text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:10px;}
+.slabel{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.28em;color:var(–gold);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
 .slabel::after{content:’’;flex:1;height:0.5px;background:var(–border);}
 h2{font-family:‘Cormorant Garamond’,serif;font-size:clamp(22px,3.2vw,36px);font-weight:400;color:var(–text);margin-bottom:14px;line-height:1.1;}
 p{line-height:1.8;color:var(–text-muted);font-size:14px;max-width:700px;}
 p+p{margin-top:10px;}
 
-.formula-panel{border:0.5px solid var(–border-lt);background:var(–bg2);padding:24px 28px;margin:20px 0;position:relative;}
-.formula-panel::before,.formula-panel::after{content:’’;position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(–gold),transparent);}
-.formula-panel::before{top:0;}.formula-panel::after{bottom:0;}
-.feq{font-family:‘DM Mono’,monospace;font-size:12px;color:var(–gold-lt);line-height:2.2;}
-.feq .v{color:var(–green-lt);}.feq .o{color:var(–text-dim);}
-.fdefs{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px;}
-.fdef{background:var(–bg3);padding:9px 13px;}
-.fdef-l{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.13em;color:var(–gold);text-transform:uppercase;margin-bottom:3px;}
-.fdef-t{font-size:12px;color:var(–text-muted);line-height:1.6;}
+/* SCRATCH CARDS */
+.scratch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:16px 0;}
+.sc-card{background:var(–bg2);border:0.5px solid var(–border);padding:14px 16px;position:relative;overflow:hidden;}
+.sc-card::before{content:’’;position:absolute;left:0;top:0;bottom:0;width:2px;}
+.sc-out::before{background:#E07070;}
+.sc-in::before{background:var(–green-lt);}
+.sc-up::before{background:var(–amber);}
+.sc-down::before{background:#B085D0;}
+.sc-type{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;}
+.sc-out .sc-type{color:#E07070;}
+.sc-in .sc-type{color:var(–green-lt);}
+.sc-up .sc-type{color:var(–amber);}
+.sc-down .sc-type{color:#B085D0;}
+.sc-horse{font-family:‘Cormorant Garamond’,serif;font-size:16px;font-weight:600;color:var(–text);margin-bottom:3px;}
+.sc-detail{font-size:12px;color:var(–text-muted);line-height:1.6;}
 
-.tbl-wrap{overflow-x:auto;margin-top:16px;}
-table{width:100%;border-collapse:collapse;min-width:760px;}
+/* TABLE */
+.tbl-wrap{overflow-x:auto;margin-top:14px;}
+table{width:100%;border-collapse:collapse;min-width:740px;}
 thead th{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.12em;color:var(–text-dim);text-transform:uppercase;text-align:left;padding:6px 9px;border-bottom:0.5px solid var(–border);}
 tbody tr{border-bottom:0.5px solid rgba(200,169,110,0.06);transition:background 0.15s;}
 tbody tr:hover{background:var(–bg3);}
 tbody tr.tr-v1{background:rgba(200,169,110,0.07);}
 tbody tr.tr-v2{background:rgba(200,169,110,0.03);}
 tbody tr.tr-skip{opacity:0.28;}
-tbody tr.tr-scr{opacity:0.15;text-decoration:line-through;}
+tbody tr.tr-scr{opacity:0.12;text-decoration:line-through;}
 tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:middle;}
 .hname{font-family:‘Cormorant Garamond’,serif;font-size:14px;font-weight:600;color:var(–text);}
 .hmeta{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–text-dim);margin-top:1px;}
 .pp{font-family:‘DM Mono’,monospace;font-size:11px;width:23px;height:23px;border:0.5px solid var(–border);display:inline-flex;align-items:center;justify-content:center;color:var(–text-muted);}
 .pp-ok{border-color:rgba(76,175,115,0.4);color:var(–green-lt);}
 .pp-bad{border-color:rgba(139,26,43,0.4);color:#E07070;}
-.sc{font-family:‘DM Mono’,monospace;font-size:11px;font-weight:500;padding:2px 7px;}
+.score{font-family:‘DM Mono’,monospace;font-size:11px;font-weight:500;padding:2px 7px;}
 .sc-hi{background:var(–green-dim);color:var(–green-lt);}
 .sc-md{background:var(–amber-dim);color:var(–amber);}
 .sc-lo{background:transparent;color:var(–text-dim);}
-.sb{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.07em;text-transform:uppercase;padding:2px 6px;border:0.5px solid;}
-.sb-v{color:var(–green-lt);border-color:rgba(76,175,115,0.3);}
-.sb-w{color:var(–gold);border-color:rgba(200,169,110,0.3);}
-.sb-s{color:var(–text-dim);border-color:var(–border);}
-.sb-bomb{color:#B085D0;border-color:rgba(155,89,182,0.4);}
+.sig{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.07em;text-transform:uppercase;padding:2px 6px;border:0.5px solid;}
+.sig-v{color:var(–green-lt);border-color:rgba(76,175,115,0.3);}
+.sig-w{color:var(–gold);border-color:rgba(200,169,110,0.3);}
+.sig-s{color:var(–text-dim);border-color:var(–border);}
+.sig-b{color:#B085D0;border-color:rgba(155,89,182,0.4);}
 .bar-c{display:flex;align-items:center;gap:4px;}
 .bar{height:3px;border-radius:2px;background:rgba(255,255,255,0.05);flex:1;max-width:44px;overflow:hidden;}
 .bf{height:100%;border-radius:2px;}
@@ -91,7 +98,8 @@ tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:
 .odds-up{font-size:10px;font-family:‘DM Mono’,monospace;color:#E07070;}
 .odds-dn{font-size:10px;font-family:‘DM Mono’,monospace;color:var(–text-dim);}
 
-.hkey{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:9px;margin:18px 0;}
+/* HORSE KEY */
+.hkey{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;margin:16px 0;}
 .hk{background:var(–bg2);border:0.5px solid var(–border);padding:13px 15px;display:flex;gap:11px;align-items:flex-start;}
 .hk-pp{font-family:‘DM Mono’,monospace;font-size:13px;font-weight:500;color:var(–gold);width:26px;flex-shrink:0;margin-top:2px;}
 .hk-body{flex:1;}
@@ -99,7 +107,8 @@ tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:
 .hk-meta{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–text-muted);line-height:1.5;}
 .hk-role{display:inline-block;font-family:‘DM Mono’,monospace;font-size:8px;letter-spacing:0.09em;text-transform:uppercase;padding:2px 6px;border:0.5px solid;margin-top:4px;}
 
-.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:20px;}
+/* TICKETS */
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:18px;}
 @media(max-width:600px){.tgrid{grid-template-columns:1fr;}}
 .ticket{background:var(–bg2);border:0.5px solid var(–border);padding:18px;position:relative;transition:border-color 0.2s;}
 .ticket:hover{border-color:var(–border-lt);}
@@ -109,7 +118,7 @@ tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:
 .ticket.bomb::before{content:‘SCARCITY BOMB ⚡’;position:absolute;top:-1px;right:16px;background:#9B59B6;color:#F0EAD6;font-family:‘DM Mono’,monospace;font-size:8px;letter-spacing:0.14em;padding:3px 9px;}
 .t-type{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:0.16em;color:var(–gold);text-transform:uppercase;margin-bottom:8px;}
 .t-name{font-family:‘Cormorant Garamond’,serif;font-size:17px;font-weight:600;color:var(–text);margin-bottom:11px;line-height:1.2;}
-.t-horses{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:13px;}
+.t-horses{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
 .th{font-family:‘DM Mono’,monospace;font-size:10px;padding:3px 8px;border:0.5px solid;}
 .th-key{color:var(–blue);border-color:rgba(78,154,241,0.3);background:var(–blue-dim);}
 .th-scar{color:var(–gold-lt);border-color:rgba(200,169,110,0.3);background:var(–gold-dim);}
@@ -124,19 +133,21 @@ tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:
 .total-label{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–text-muted);letter-spacing:0.09em;text-transform:uppercase;}
 .total-amt{font-family:‘Cormorant Garamond’,serif;font-size:32px;font-weight:300;color:var(–gold);}
 
-.callout{border-left:2px solid var(–gold);padding:11px 15px;margin:15px 0;background:var(–gold-dim);}
+/* CALLOUTS */
+.callout{border-left:2px solid var(–gold);padding:11px 15px;margin:14px 0;background:var(–gold-dim);}
 .callout p{font-size:13px;color:var(–text-muted);max-width:none;}
 .callout strong{color:var(–text);font-weight:500;}
-.warn{border-left:2px solid var(–rose);padding:11px 15px;margin:11px 0;background:var(–rose-dim);}
+.warn{border-left:2px solid var(–rose);padding:11px 15px;margin:10px 0;background:var(–rose-dim);}
 .warn p{font-size:13px;color:var(–text-muted);max-width:none;}
 .warn strong{color:#E07070;font-weight:500;}
-.info{border-left:2px solid var(–blue);padding:11px 15px;margin:11px 0;background:var(–blue-dim);}
+.info{border-left:2px solid var(–blue);padding:11px 15px;margin:10px 0;background:var(–blue-dim);}
 .info p{font-size:13px;color:var(–text-muted);max-width:none;}
 .info strong{color:var(–blue);font-weight:500;}
-.purple-call{border-left:2px solid #9B59B6;padding:11px 15px;margin:15px 0;background:var(–purple-dim);}
+.purple-call{border-left:2px solid #9B59B6;padding:11px 15px;margin:14px 0;background:var(–purple-dim);}
 .purple-call p{font-size:13px;color:var(–text-muted);max-width:none;}
 .purple-call strong{color:#B085D0;font-weight:500;}
 
+/* QUICK REF */
 .qr{background:var(–bg2);border:0.5px solid var(–border);padding:11px 13px;margin-bottom:7px;display:flex;gap:10px;align-items:flex-start;}
 .qr.qr-feat{border-color:var(–border-lt);}
 .qr.qr-bomb{border-color:rgba(155,89,182,0.35);}
@@ -152,23 +163,25 @@ tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:
 .qr-say{font-size:11px;color:var(–text-dim);font-style:italic;margin-top:3px;}
 .qr-cost{font-family:‘DM Mono’,monospace;font-size:12px;color:var(–gold);white-space:nowrap;flex-shrink:0;}
 
-.pa-banner{background:var(–bg2);border:0.5px solid var(–border-lt);padding:16px 20px;margin:18px 0;display:flex;gap:14px;align-items:flex-start;}
-.pa-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+/* PA */
+.pa-banner{background:var(–bg2);border:0.5px solid var(–border-lt);padding:14px 18px;margin:16px 0;display:flex;gap:12px;align-items:flex-start;}
+.pa-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
 .pa-body{flex:1;}
-.pa-title{font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:0.14em;color:var(–green-lt);text-transform:uppercase;margin-bottom:5px;}
+.pa-title{font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:0.14em;color:var(–green-lt);text-transform:uppercase;margin-bottom:4px;}
 .pa-text{font-size:13px;color:var(–text-muted);line-height:1.7;}
 .pa-text strong{color:var(–text);font-weight:500;}
-.app-status{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;margin-top:11px;}
-.app-stat{background:var(–bg3);padding:9px 13px;display:flex;align-items:center;gap:7px;}
-.asdot{width:6px;height:6px;border-radius:50%;background:var(–green-lt);flex-shrink:0;}
-.asname{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–text-muted);}
-.asstatus{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–green-lt);margin-left:auto;}
+.app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px;margin-top:10px;}
+.app-item{background:var(–bg3);padding:8px 12px;display:flex;align-items:center;gap:6px;}
+.adot{width:6px;height:6px;border-radius:50%;background:var(–green-lt);flex-shrink:0;}
+.aname{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–text-muted);}
+.astatus{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–green-lt);margin-left:auto;}
 
-.app-tabs{display:flex;gap:0;border-bottom:0.5px solid var(–border);flex-wrap:wrap;margin-top:20px;}
+/* APP TABS */
+.app-tabs{display:flex;gap:0;border-bottom:0.5px solid var(–border);flex-wrap:wrap;margin-top:18px;}
 .atab{font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:9px 15px;cursor:pointer;color:var(–text-muted);border:none;background:transparent;border-bottom:1px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
 .atab:hover{color:var(–text);}
 .atab.active{color:var(–gold);border-bottom-color:var(–gold);}
-.apane{display:none;padding-top:22px;}
+.apane{display:none;padding-top:20px;}
 .apane.active{display:block;}
 .app-hd{display:flex;align-items:center;gap:11px;margin-bottom:16px;}
 .app-logo{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:‘DM Mono’,monospace;font-size:12px;font-weight:500;flex-shrink:0;}
@@ -179,7 +192,7 @@ tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:
 .app-title{font-family:‘Cormorant Garamond’,serif;font-size:18px;font-weight:600;color:var(–text);}
 .app-sub{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–text-muted);margin-top:2px;}
 .steps{list-style:none;}
-.steps li{display:flex;gap:12px;margin-bottom:15px;}
+.steps li{display:flex;gap:12px;margin-bottom:14px;}
 .step-n{width:24px;height:24px;border:0.5px solid var(–border-lt);color:var(–gold);font-family:‘DM Mono’,monospace;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
 .step-b{flex:1;}
 .step-t{font-size:13px;font-weight:500;color:var(–text);margin-bottom:3px;}
@@ -188,11 +201,12 @@ tbody td{padding:8px 9px;font-size:12px;color:var(–text-muted);vertical-align:
 .note{background:var(–bg2);border-left:2px solid var(–gold);padding:10px 14px;margin-top:12px;font-size:12px;color:var(–text-muted);line-height:1.7;}
 .note strong{color:var(–text);font-weight:500;}
 
-.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:11px;}
+/* LEGEND */
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;}
 .leg{display:flex;align-items:center;gap:4px;font-family:‘DM Mono’,monospace;font-size:9px;color:var(–text-muted);}
 .leg-dot{width:6px;height:6px;border-radius:1px;flex-shrink:0;}
 
-footer{padding:40px 0;border-top:0.5px solid var(–border);}
+footer{padding:36px 0;border-top:0.5px solid var(–border);}
 .foot-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;}
 .foot-brand{font-family:‘Cormorant Garamond’,serif;font-size:19px;font-weight:300;font-style:italic;color:var(–gold);margin-bottom:4px;}
 .foot-meta{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
@@ -201,16 +215,16 @@ footer{padding:40px 0;border-top:0.5px solid var(–border);}
 .pt-time{font-family:‘Cormorant Garamond’,serif;font-size:28px;font-weight:300;color:var(–gold);text-align:right;}
 .pt-date{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–text-dim);letter-spacing:0.09em;text-align:right;}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.hero{opacity:0;animation:fadeUp 0.7s ease forwards 0.1s;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.hero{opacity:0;animation:fadeUp 0.6s ease forwards 0.1s;}
 section:nth-of-type(1){opacity:0;animation:fadeUp 0.6s ease forwards 0.2s;}
 section:nth-of-type(2){opacity:0;animation:fadeUp 0.6s ease forwards 0.28s;}
 section:nth-of-type(3){opacity:0;animation:fadeUp 0.6s ease forwards 0.35s;}
 section:nth-of-type(4){opacity:0;animation:fadeUp 0.6s ease forwards 0.41s;}
 section:nth-of-type(5){opacity:0;animation:fadeUp 0.6s ease forwards 0.47s;}
-section:nth-of-type(6){opacity:0;animation:fadeUp 0.6s ease forwards 0.53s;}
-section:nth-of-type(7){opacity:0;animation:fadeUp 0.6s ease forwards 0.58s;}
-footer{opacity:0;animation:fadeUp 0.6s ease forwards 0.63s;}
+section:nth-of-type(6){opacity:0;animation:fadeUp 0.6s ease forwards 0.52s;}
+section:nth-of-type(7){opacity:0;animation:fadeUp 0.6s ease forwards 0.57s;}
+footer{opacity:0;animation:fadeUp 0.6s ease forwards 0.62s;}
 
 @media(max-width:600px){
 table{font-size:11px;}thead th,tbody td{padding:5px 6px;}
@@ -222,91 +236,99 @@ table{font-size:11px;}thead th,tbody td{padding:5px 6px;}
 </head>
 <body>
 
-<div class="top-bar">
-  ⚠ FINAL FIELD SET &nbsp;·&nbsp; <strong>3 scratches: Silent Tactic · Fulleffort · Right to Party</strong> &nbsp;·&nbsp; <strong>Great White post 19 · Robusta post 5 · Ocelli post 20</strong> &nbsp;·&nbsp; Odds &amp; tickets updated · May 1 2026
+<div class="alert-bar">
+  ⚠ RACE DAY FINAL &nbsp;·&nbsp; <strong>4 scratches: Silent Tactic · Fulleffort · Right to Party · The Puma</strong> &nbsp;·&nbsp; <strong>19 horses run tonight</strong> &nbsp;·&nbsp; Tickets updated · Post 6:57 PM ET
 </div>
 
 <div class="wrap">
 
+<!-- HERO -->
+
 <div class="hero">
   <div class="eyebrow">152nd Run for the Roses · Churchill Downs · May 2, 2026</div>
   <h1>The Value<br>Bet Formula<br><em>Kentucky Derby</em></h1>
-  <div class="hero-sub">Final field · Live odds · All 20 horses scored · Two superfecta strategy</div>
+  <div class="hero-sub">Race day final · 19 horses · Tickets updated · Formula re-run</div>
   <div class="pills">
-    <div class="pill pill-live">Post time 6:57 PM ET · Tomorrow</div>
-    <div class="pill">20 horses · 1¼ miles dirt · $5M purse</div>
-    <div class="pill pill-warn">3 scratches · 3 late entries · Field locked</div>
+    <div class="pill pill-live">Post time 6:57 PM ET · Tonight</div>
+    <div class="pill">19 horses · 1¼ miles dirt · $5M purse</div>
+    <div class="pill pill-warn">The Puma scratched — tickets revised</div>
     <div class="pill">📍 Pennsylvania betting — all apps legal ✓</div>
   </div>
 </div>
 
-<!-- FORMULA -->
+<!-- WHAT CHANGED -->
 
 <section>
-  <div class="slabel">The Formula</div>
-  <h2>How value scores are built</h2>
-  <p>The formula identifies horses the public is systematically under-betting in exotic pools relative to their actual form. Scarcity gets the highest weight — market inefficiency lives there. Post position is factored in because it matters enormously in a 20-horse field.</p>
-  <div class="formula-panel">
-    <div class="feq">
-      <span class="v">Value Score</span> <span class="o">=</span>
-      (<span class="v">Implied Probability</span> <span class="o">×</span> 0.35)
-      <span class="o">+</span> (<span class="v">Pool Scarcity</span> <span class="o">×</span> 0.40)
-      <span class="o">+</span> (<span class="v">Payout Multiplier</span> <span class="o">×</span> 0.25)
-      <span class="o">+</span> (<span class="v">Post Position Bonus</span> <span class="o">×</span> 0.05)
+  <div class="slabel">Race Day Changes</div>
+  <h2>Four scratches · Final formula re-run</h2>
+  <div class="scratch-grid">
+    <div class="sc-card sc-out">
+      <div class="sc-type">Scratched this morning</div>
+      <div class="sc-horse">The Puma (7-1)</div>
+      <div class="sc-detail">Swelling in leg from skin infection. Was post 9. Only 19 horses run tonight. Removed from all tickets — replaced by Chief Wallabee throughout.</div>
     </div>
-    <div class="fdefs">
-      <div class="fdef"><div class="fdef-l">Implied Probability</div><div class="fdef-t">Win probability from current odds: 1 ÷ (odds+1) × 100</div></div>
-      <div class="fdef"><div class="fdef-l">Pool Scarcity</div><div class="fdef-t">How under-bet in exotic pools: 100 − estimated pool inclusion %</div></div>
-      <div class="fdef"><div class="fdef-l">Payout Multiplier</div><div class="fdef-t">Odds-based return potential — sweet spot 10-1 to 30-1</div></div>
-      <div class="fdef"><div class="fdef-l">Post Position</div><div class="fdef-t">+5 for posts 5–15 · −5 for posts 1–3 and 17+ · 0 for 16–17</div></div>
+    <div class="sc-card sc-up">
+      <div class="sc-type">Formula moves up</div>
+      <div class="sc-horse">Chief Wallabee → co-top pick</div>
+      <div class="sc-detail">At 7-1 with blinkers added, now essentially tied with Emerging Market for #1 composite. Bill Mott won Derby 2019 & 2025. Takes The Puma's slot on all tickets.</div>
     </div>
+    <div class="sc-card sc-down">
+      <div class="sc-type">Value compressed</div>
+      <div class="sc-horse">Commandment 7-1 → 5-1</div>
+      <div class="sc-detail">Public money flooded in after The Puma scratch. Pool saturation increases. Still your hedge key but at 5-1 the value is thinner than yesterday.</div>
+    </div>
+    <div class="sc-card sc-down">
+      <div class="sc-type">Also compressed</div>
+      <div class="sc-horse">Emerging Market 11-1 → 9-1</div>
+      <div class="sc-detail">Shortened further as public finds the formula's top pick. Still #1 composite. Check live tote — if above 20% of trifecta tickets consider switching key to Chief Wallabee.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>The Puma scratch is significant but not fatal to the tickets.</strong> He was our hedge underneath horse in Trifecta B and C, and our scarcity partner in Superfecta 2. Chief Wallabee replaces him throughout — same post zone (12), same value tier, and actually better scarcity since he's slightly less bet than The Puma was.</p>
   </div>
 </section>
 
 <!-- SCORES TABLE -->
 
 <section>
-  <div class="slabel">Formula Output · Final Field</div>
-  <h2>All 20 horses scored — final odds</h2>
-  <p>Sorted by composite score. Odds as of Friday May 1 morning. Three scratches noted. Check live tote on your app race day for final pool percentages.</p>
+  <div class="slabel">Formula Output · Race Day Final</div>
+  <h2>19-horse field · Current odds · Re-scored</h2>
+  <p>Sorted by composite score. Odds as of Saturday morning. Four scratches shown struck through.</p>
 
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>PP</th><th>Horse</th><th>Odds</th><th>Move</th><th>Beyer</th><th>Prob</th><th>Scarcity</th><th>Payout</th><th>Post</th><th>Score</th><th>Signal</th></tr></thead>
       <tbody>
-        <tr class="tr-v1"><td><span class="pp pp-ok">14</span></td><td><div><div class="hname">Emerging Market <span class="star">★</span></div><div class="hmeta">Brown / Prat · Undefeated · Louisiana Derby W</div></div></td><td>11-1</td><td class="odds-up">↑ from 15-1</td><td>98</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:26%"></div></div><span>26</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:80%"></div></div><span>80</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:54%"></div></div><span>54</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-hi">53</span></td><td><span class="sb sb-v">Value ⭐</span></td></tr>
+        <tr class="tr-v1"><td><span class="pp pp-ok">15</span></td><td><div><div class="hname">Emerging Market <span class="star">★</span></div><div class="hmeta">Brown / Prat · Undefeated · Louisiana Derby W · post shifts to 14</div></div></td><td>9-1</td><td class="odds-up">↑ from 11-1</td><td>98</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:30%"></div></div><span>30</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:76%"></div></div><span>76</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:52%"></div></div><span>52</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-hi">52</span></td><td><span class="sig sig-v">Value ⭐</span></td></tr>
 
 ```
-    <tr class="tr-v1"><td><span class="pp pp-ok">12</span></td><td><div><div class="hname">Chief Wallabee <span class="star">★</span></div><div class="hmeta">Mott / Alvarado · Fountain of Youth 2nd · blinkers</div></div></td><td>9-1</td><td class="odds-dn">—</td><td>99</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:28%"></div></div><span>28</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:72%"></div></div><span>72</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:50%"></div></div><span>50</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-hi">53</span></td><td><span class="sb sb-v">Value</span></td></tr>
+    <tr class="tr-v1"><td><span class="pp pp-ok">12</span></td><td><div><div class="hname">Chief Wallabee <span class="star">★</span></div><div class="hmeta">Mott / Alvarado · Fountain of Youth 2nd · blinkers first time</div></div></td><td>7-1</td><td class="odds-up">↑ from 9-1</td><td>99</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:36%"></div></div><span>36</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:64%"></div></div><span>64</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:46%"></div></div><span>46</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-hi">51</span></td><td><span class="sig sig-v">Value ⭐</span></td></tr>
 
-    <tr class="tr-v1"><td><span class="pp pp-ok">7</span></td><td><div><div class="hname">Danon Bourbon <span class="star">★</span></div><div class="hmeta">Ikezoe / Nishimura · Undefeated Japan · 3W by 18L</div></div></td><td>14-1</td><td class="odds-dn">—</td><td>N/A</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:24%"></div></div><span>24</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:78%"></div></div><span>78</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:56%"></div></div><span>56</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-hi">52</span></td><td><span class="sb sb-v">Value</span></td></tr>
+    <tr class="tr-v1"><td><span class="pp pp-ok">7</span></td><td><div><div class="hname">Danon Bourbon <span class="star">★</span></div><div class="hmeta">Ikezoe / Nishimura · Undefeated Japan · 3W by 18L combined</div></div></td><td>14-1</td><td class="odds-dn">—</td><td>N/A</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:24%"></div></div><span>24</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:78%"></div></div><span>78</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:56%"></div></div><span>56</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-hi">51</span></td><td><span class="sig sig-v">Value</span></td></tr>
 
-    <tr class="tr-v1"><td><span class="pp pp-ok">6</span></td><td><div><div class="hname">Commandment <span class="star">★</span></div><div class="hmeta">Cox / Saez · Florida Derby W · 4-race win streak · 106 Beyer</div></div></td><td>7-1</td><td class="odds-dn">—</td><td>106</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:40%"></div></div><span>40</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:58%"></div></div><span>58</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:38%"></div></div><span>38</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-hi">50</span></td><td><span class="sb sb-v">Value</span></td></tr>
+    <tr class="tr-v1"><td><span class="pp pp-ok">6</span></td><td><div><div class="hname">Commandment <span class="star">★</span></div><div class="hmeta">Cox / Saez · Florida Derby W · 4-race win streak · 106 Beyer</div></div></td><td>5-1</td><td class="odds-up">↑ from 7-1</td><td>106</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:50%"></div></div><span>50</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:42%"></div></div><span>42</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:30%"></div></div><span>30</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-hi">44</span></td><td><span class="sig sig-v">Value</span></td></tr>
 
-    <tr class="tr-v2"><td><span class="pp">19</span></td><td><div><div class="hname">Great White ⚡</div><div class="hmeta">Late entry · Post 19 · 1,300lb gray · Turfway 2W</div></div></td><td>29-1</td><td class="odds-up">↑ from 50-1</td><td>82</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:10%"></div></div><span>10</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:72%"></div></div><span>72</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:76%"></div></div><span>76</span></div></td><td style="color:#E07070">−5</td><td><span class="sc sc-md">48</span></td><td><span class="sb sb-bomb">Scarcity ⚡</span></td></tr>
+    <tr class="tr-v2"><td><span class="pp">19</span></td><td><div><div class="hname">Great White ⚡</div><div class="hmeta">Late entry · 1,300lb gray · Turfway 2W · post 19</div></div></td><td>29-1</td><td class="odds-dn">—</td><td>82</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:10%"></div></div><span>10</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:70%"></div></div><span>70</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:74%"></div></div><span>74</span></div></td><td style="color:#E07070">−5</td><td><span class="score sc-md">47</span></td><td><span class="sig sig-b">Scarcity ⚡</span></td></tr>
 
-    <tr class="tr-v2"><td><span class="pp pp-ok">9</span></td><td><div><div class="hname">The Puma</div><div class="hmeta">Delgado / Castellano · Tampa Bay Derby W · 2nd Florida Derby</div></div></td><td>8-1</td><td class="odds-dn">↓ from 5-1</td><td>102</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:42%"></div></div><span>42</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:50%"></div></div><span>50</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:38%"></div></div><span>38</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-md">47</span></td><td><span class="sb sb-w">Monitor</span></td></tr>
+    <tr class="tr-v2"><td><span class="pp">18</span></td><td><div><div class="hname">Further Ado</div><div class="hmeta">Cox / Velazquez · Blue Grass W by 11L · field-best 108 Beyer</div></div></td><td>6-1</td><td class="odds-dn">—</td><td>108</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:40%"></div></div><span>40</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:44%"></div></div><span>44</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:36%"></div></div><span>36</span></div></td><td style="color:var(--text-dim)">0</td><td><span class="score sc-md">40</span></td><td><span class="sig sig-w">Monitor</span></td></tr>
 
-    <tr class="tr-v2"><td><span class="pp">17</span></td><td><div><div class="hname">Further Ado</div><div class="hmeta">Cox / Velazquez · Blue Grass W by 11L · 108 Beyer · post hurts</div></div></td><td>7-1</td><td class="odds-dn">—</td><td>108</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:38%"></div></div><span>38</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:44%"></div></div><span>44</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:36%"></div></div><span>36</span></div></td><td style="color:var(--text-dim)">0</td><td><span class="sc sc-md">40</span></td><td><span class="sb sb-w">Monitor</span></td></tr>
+    <tr class="tr-v2"><td><span class="pp pp-ok">8</span></td><td><div><div class="hname">So Happy</div><div class="hmeta">Glatt / Mike Smith · Santa Anita Derby W · 103 Brisnet</div></div></td><td>5-1</td><td class="odds-up">↑ from 6-1</td><td>100</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:50%"></div></div><span>50</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:34%"></div></div><span>34</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:30%"></div></div><span>30</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-md">40</span></td><td><span class="sig sig-w">Monitor</span></td></tr>
 
-    <tr class="tr-v2"><td><span class="pp pp-ok">8</span></td><td><div><div class="hname">So Happy</div><div class="hmeta">Glatt / Mike Smith · Santa Anita Derby W · 103 Brisnet · co-fav</div></div></td><td>6-1</td><td class="odds-up">↑ from 15-1</td><td>100</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:46%"></div></div><span>46</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:36%"></div></div><span>36</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:34%"></div></div><span>34</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-md">40</span></td><td><span class="sb sb-w">Monitor</span></td></tr>
-
-    <!-- SKIP -->
-    <tr class="tr-skip"><td><span class="pp pp-bad">1</span></td><td><div><div class="hname">Renegade</div><div class="hmeta">Pletcher / Ortiz Jr. · Arkansas Derby W · rail curse · quarter crack</div></div></td><td>5-1</td><td class="odds-dn">—</td><td>104</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:50%"></div></div><span>50</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:8%"></div></div><span>8</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:28%"></div></div><span>28</span></div></td><td style="color:#E07070">−5</td><td><span class="sc sc-lo">28</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-bad">2</span></td><td><div><div class="hname">Albus</div><div class="hmeta">Riley Mott · post 2 curse · 88 Beyer</div></div></td><td>50-1</td><td class="odds-dn">—</td><td>88</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:80%"></div></div><span>80</span></div></td><td style="color:#E07070">−5</td><td><span class="sc sc-lo">42</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-bad">3</span></td><td><div><div class="hname">Intrepido</div><div class="hmeta">Mullins · 57s bullet work · 4th Santa Anita Derby · connections lukewarm</div></div></td><td>55-1</td><td class="odds-dn">—</td><td>85</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:90%"></div></div><span>90</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:82%"></div></div><span>82</span></div></td><td style="color:#E07070">−5</td><td><span class="sc sc-lo">37</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-ok">4</span></td><td><div><div class="hname">Litmus Test</div><div class="hmeta">Baffert · Nyquist son · stalker · figures light</div></div></td><td>34-1</td><td class="odds-dn">—</td><td>88</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:8%"></div></div><span>8</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:74%"></div></div><span>74</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-lo">43</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-ok">5</span></td><td><div><div class="hname">Robusta</div><div class="hmeta">O'Neill · LATE ENTRY · 89 Beyer · faded 16L Santa Anita Derby</div></div></td><td>50-1</td><td class="odds-dn">New entry</td><td>89</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:90%"></div></div><span>90</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:80%"></div></div><span>80</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-lo">43</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-ok">10</span></td><td><div><div class="hname">Wonder Dean</div><div class="hmeta">Takayanagi · UAE Derby W · Japan road · no US figures</div></div></td><td>20-1</td><td class="odds-dn">—</td><td>N/A</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:14%"></div></div><span>14</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:82%"></div></div><span>82</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:64%"></div></div><span>64</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-lo">43</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-ok">11</span></td><td><div><div class="hname">Incredibolt</div><div class="hmeta">Riley Mott · Virginia Derby W · 7-week layoff · Colonial soft comp</div></div></td><td>27-1</td><td class="odds-dn">—</td><td>94</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:12%"></div></div><span>12</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:82%"></div></div><span>82</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:68%"></div></div><span>68</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-lo">46</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-ok">13</span></td><td><div><div class="hname">Potente</div><div class="hmeta">Baffert · San Felipe W · 2nd Santa Anita Derby · 96 Beyer</div></div></td><td>23-1</td><td class="odds-dn">—</td><td>96</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:14%"></div></div><span>14</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:78%"></div></div><span>78</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:64%"></div></div><span>64</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="sc sc-lo">45</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-bad">15</span></td><td><div><div class="hname">Pavlovian</div><div class="hmeta">O'Neill · outside post · class concern</div></div></td><td>52-1</td><td class="odds-dn">—</td><td>82</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:78%"></div></div><span>78</span></div></td><td style="color:var(--text-dim)">0</td><td><span class="sc sc-lo">40</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-bad">16</span></td><td><div><div class="hname">Six Speed</div><div class="hmeta">Seemar · UAE Derby 2nd · no US Beyer · outside</div></div></td><td>40-1</td><td class="odds-dn">—</td><td>N/A</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:8%"></div></div><span>8</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:90%"></div></div><span>90</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:80%"></div></div><span>80</span></div></td><td style="color:var(--text-dim)">0</td><td><span class="sc sc-lo">38</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-bad">18</span></td><td><div><div class="hname">Golden Tempo</div><div class="hmeta">DeVaux · 3rd Louisiana Derby · outside post</div></div></td><td>36-1</td><td class="odds-dn">—</td><td>86</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:8%"></div></div><span>8</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:74%"></div></div><span>74</span></div></td><td style="color:#E07070">−5</td><td><span class="sc sc-lo">37</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-skip"><td><span class="pp pp-bad">20</span></td><td><div><div class="hname">Ocelli</div><div class="hmeta">LATE ENTRY · 92 Brisnet · 6th Virginia Derby · Wood Memorial 3rd</div></div></td><td>50-1</td><td class="odds-dn">New entry</td><td>92</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:90%"></div></div><span>90</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:80%"></div></div><span>80</span></div></td><td style="color:#E07070">−5</td><td><span class="sc sc-lo">38</span></td><td><span class="sb sb-s">Skip</span></td></tr>
-    <tr class="tr-scr"><td>—</td><td><div><div class="hname">Silent Tactic</div><div class="hmeta">SCRATCHED · bruised foot</div></div></td><td>—</td><td>—</td><td>92</td><td colspan="5" style="font-family:'DM Mono',monospace;font-size:10px;color:#E07070;">SCRATCHED</td><td><span class="sb" style="color:#E07070;border-color:rgba(224,112,112,0.3);">Out</span></td></tr>
-    <tr class="tr-scr"><td>—</td><td><div><div class="hname">Fulleffort</div><div class="hmeta">SCRATCHED · ankle injury</div></div></td><td>—</td><td>—</td><td>92</td><td colspan="5" style="font-family:'DM Mono',monospace;font-size:10px;color:#E07070;">SCRATCHED</td><td><span class="sb" style="color:#E07070;border-color:rgba(224,112,112,0.3);">Out</span></td></tr>
-    <tr class="tr-scr"><td>—</td><td><div><div class="hname">Right to Party</div><div class="hmeta">SCRATCHED · undisclosed</div></div></td><td>—</td><td>—</td><td>81</td><td colspan="5" style="font-family:'DM Mono',monospace;font-size:10px;color:#E07070;">SCRATCHED</td><td><span class="sb" style="color:#E07070;border-color:rgba(224,112,112,0.3);">Out</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-bad">1</span></td><td><div><div class="hname">Renegade</div><div class="hmeta">Pletcher / Ortiz Jr. · Arkansas Derby W · rail curse · quarter crack</div></div></td><td>5-1</td><td class="odds-dn">—</td><td>104</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:50%"></div></div><span>50</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:8%"></div></div><span>8</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:28%"></div></div><span>28</span></div></td><td style="color:#E07070">−5</td><td><span class="score sc-lo">28</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-bad">2</span></td><td><div><div class="hname">Albus</div><div class="hmeta">Riley Mott · post 2 historic drought · 88 Beyer</div></div></td><td>43-1</td><td class="odds-dn">—</td><td>88</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:80%"></div></div><span>80</span></div></td><td style="color:#E07070">−5</td><td><span class="score sc-lo">42</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-bad">3</span></td><td><div><div class="hname">Intrepido</div><div class="hmeta">Mullins · 57s bullet work · 4th Santa Anita Derby</div></div></td><td>45-1</td><td class="odds-dn">—</td><td>85</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:90%"></div></div><span>90</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:82%"></div></div><span>82</span></div></td><td style="color:#E07070">−5</td><td><span class="score sc-lo">37</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-ok">4</span></td><td><div><div class="hname">Litmus Test</div><div class="hmeta">Baffert · Nyquist son · stalker · figures light</div></div></td><td>28-1</td><td class="odds-dn">—</td><td>88</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:10%"></div></div><span>10</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:74%"></div></div><span>74</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-lo">43</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-ok">5</span></td><td><div><div class="hname">Robusta</div><div class="hmeta">O'Neill · late entry · faded 16L Santa Anita Derby · 89 Beyer</div></div></td><td>50-1</td><td class="odds-dn">—</td><td>89</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:90%"></div></div><span>90</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:80%"></div></div><span>80</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-lo">43</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-ok">10</span></td><td><div><div class="hname">Wonder Dean</div><div class="hmeta">Takayanagi · UAE Derby W · Japan road · no US figures</div></div></td><td>22-1</td><td class="odds-dn">—</td><td>N/A</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:14%"></div></div><span>14</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:82%"></div></div><span>82</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:64%"></div></div><span>64</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-lo">43</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-ok">11</span></td><td><div><div class="hname">Incredibolt</div><div class="hmeta">Riley Mott · Virginia Derby W · 7-week layoff · Colonial soft comp</div></div></td><td>24-1</td><td class="odds-dn">—</td><td>94</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:12%"></div></div><span>12</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:82%"></div></div><span>82</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:68%"></div></div><span>68</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-lo">46</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-ok">13</span></td><td><div><div class="hname">Potente</div><div class="hmeta">Baffert · San Felipe W · 2nd Santa Anita Derby · 96 Beyer</div></div></td><td>21-1</td><td class="odds-dn">—</td><td>96</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:14%"></div></div><span>14</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:78%"></div></div><span>78</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:64%"></div></div><span>64</span></div></td><td style="color:var(--green-lt)">+5</td><td><span class="score sc-lo">45</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-bad">16</span></td><td><div><div class="hname">Pavlovian</div><div class="hmeta">O'Neill · outside post · class concern</div></div></td><td>46-1</td><td class="odds-dn">—</td><td>82</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:78%"></div></div><span>78</span></div></td><td style="color:var(--text-dim)">0</td><td><span class="score sc-lo">39</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-bad">17</span></td><td><div><div class="hname">Six Speed</div><div class="hmeta">Seemar · UAE Derby 2nd · post 17 never won · no US Beyer</div></div></td><td>34-1</td><td class="odds-dn">—</td><td>N/A</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:8%"></div></div><span>8</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:88%"></div></div><span>88</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:78%"></div></div><span>78</span></div></td><td style="color:var(--text-dim)">0</td><td><span class="score sc-lo">37</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-bad">18</span></td><td><div><div class="hname">Golden Tempo</div><div class="hmeta">DeVaux · 3rd Louisiana Derby · outside post</div></div></td><td>25-1</td><td class="odds-dn">—</td><td>86</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:10%"></div></div><span>10</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:86%"></div></div><span>86</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:72%"></div></div><span>72</span></div></td><td style="color:#E07070">−5</td><td><span class="score sc-lo">37</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-skip"><td><span class="pp pp-bad">20</span></td><td><div><div class="hname">Ocelli</div><div class="hmeta">Late entry · 92 Brisnet · 6th Virginia Derby · maiden</div></div></td><td>50-1</td><td class="odds-dn">—</td><td>92</td><td><div class="bar-c"><div class="bar"><div class="bf bf-b" style="width:6%"></div></div><span>6</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-g" style="width:90%"></div></div><span>90</span></div></td><td><div class="bar-c"><div class="bar"><div class="bf bf-gl" style="width:80%"></div></div><span>80</span></div></td><td style="color:#E07070">−5</td><td><span class="score sc-lo">37</span></td><td><span class="sig sig-s">Skip</span></td></tr>
+    <tr class="tr-scr"><td>—</td><td><div><div class="hname">The Puma</div><div class="hmeta">SCRATCHED race morning — swelling from skin infection</div></div></td><td>—</td><td>—</td><td>102</td><td colspan="5" style="font-family:'DM Mono',monospace;font-size:10px;color:#E07070;">SCRATCHED RACE MORNING</td><td><span class="sig" style="color:#E07070;border-color:rgba(224,112,112,0.3);">Out</span></td></tr>
+    <tr class="tr-scr"><td>—</td><td><div><div class="hname">Silent Tactic · Fulleffort · Right to Party</div><div class="hmeta">Previously scratched during Derby week</div></div></td><td>—</td><td>—</td><td>—</td><td colspan="5" style="font-family:'DM Mono',monospace;font-size:10px;color:#E07070;">ALL SCRATCHED</td><td><span class="sig" style="color:#E07070;border-color:rgba(224,112,112,0.3);">Out</span></td></tr>
   </tbody>
 </table>
 ```
@@ -326,36 +348,35 @@ table{font-size:11px;}thead th,tbody td{padding:5px 6px;}
 <!-- YOUR HORSES -->
 
 <section>
-  <div class="slabel">Your Horses</div>
-  <h2>The seven horses on your tickets</h2>
+  <div class="slabel">Your Horses · Final</div>
+  <h2>Six horses on your tickets tonight</h2>
   <div class="hkey">
-    <div class="hk"><div class="hk-pp">#14</div><div class="hk-body"><div class="hk-name">Emerging Market</div><div class="hk-meta">11-1 · Post 14 · Brown / Prat<br>Undefeated · Louisiana Derby W<br>#1 composite · post 14 optimal zone</div><div><span class="hk-role th-key">Key pick — Trifecta A top</span></div></div></div>
-    <div class="hk"><div class="hk-pp">#6</div><div class="hk-body"><div class="hk-name">Commandment</div><div class="hk-meta">7-1 · Post 6 · Cox / Saez<br>4-race win streak · Florida Derby W · 106 Beyer<br>#2 composite — hedge key</div><div><span class="hk-role th-scar">Hedge key — Trifecta B + C</span></div></div></div>
-    <div class="hk"><div class="hk-pp">#12</div><div class="hk-body"><div class="hk-name">Chief Wallabee</div><div class="hk-meta">9-1 · Post 12 · Mott / Alvarado<br>Blinkers added · lightly raced · room to improve<br>Bill Mott won Derby 2019 &amp; 2025</div><div><span class="hk-role th-long">Underneath — Exacta + Tri A + B</span></div></div></div>
-    <div class="hk"><div class="hk-pp">#7</div><div class="hk-body"><div class="hk-name">Danon Bourbon</div><div class="hk-meta">14-1 · Post 7 · Ikezoe / Nishimura<br>Undefeated · 3W Japan by 18L combined<br>High scarcity · expert-flagged</div><div><span class="hk-role th-long">Underneath — Tri A + B + Super 1</span></div></div></div>
-    <div class="hk"><div class="hk-pp">#17</div><div class="hk-body"><div class="hk-name">Further Ado</div><div class="hk-meta">7-1 · Post 17 · Cox / Velazquez<br>Field-best 108 Beyer · Blue Grass W by 11L<br>Post 17 has NEVER produced a Derby winner</div><div><span class="hk-role th-hedge">Hedge — Trifecta C box only</span></div></div></div>
-    <div class="hk"><div class="hk-pp">#9</div><div class="hk-body"><div class="hk-name">The Puma</div><div class="hk-meta">8-1 · Post 9 · Delgado / Castellano<br>Tampa Bay Derby W · 2nd Florida Derby by nose<br>Drifted back to 8-1 — value partially recovered</div><div><span class="hk-role th-scar">Underneath — Tri B + C + Super 2</span></div></div></div>
-    <div class="hk"><div class="hk-pp">#19</div><div class="hk-body"><div class="hk-name">Great White ⚡</div><div class="hk-meta">29-1 · Post 19 · Late entry · 1,300lb gray<br>Turfway 2W · beat Fulleffort<br>Shorter from 50-1 but still scarcity play</div><div><span class="hk-role th-bomb">Scarcity bomb — Superfecta 2 only</span></div></div></div>
+    <div class="hk"><div class="hk-pp">#15</div><div class="hk-body"><div class="hk-name">Emerging Market</div><div class="hk-meta">9-1 · Post 14 (shifts in) · Brown / Prat<br>Undefeated · Louisiana Derby W · #1 composite<br>Check tote — if over 20% pool switch key to #12</div><div><span class="hk-role th-key">Key pick — Trifecta A top</span></div></div></div>
+    <div class="hk"><div class="hk-pp">#12</div><div class="hk-body"><div class="hk-name">Chief Wallabee</div><div class="hk-meta">7-1 · Post 12 · Mott / Alvarado<br>Blinkers first time · lightly raced · room to improve<br>Bill Mott won Derby 2019 &amp; 2025 · co-top composite</div><div><span class="hk-role th-long">Co-key — replaces The Puma throughout</span></div></div></div>
+    <div class="hk"><div class="hk-pp">#6</div><div class="hk-body"><div class="hk-name">Commandment</div><div class="hk-meta">5-1 · Post 6 · Cox / Saez<br>4-race win streak · Florida Derby W · 106 Beyer<br>Shortened after Puma scratch — value compressed</div><div><span class="hk-role th-scar">Hedge key — Trifecta B + C</span></div></div></div>
+    <div class="hk"><div class="hk-pp">#7</div><div class="hk-body"><div class="hk-name">Danon Bourbon</div><div class="hk-meta">14-1 · Post 7 · Ikezoe / Nishimura<br>Undefeated Japan · 3W by 18L combined<br>Best remaining scarcity value in top tier</div><div><span class="hk-role th-long">Underneath — Tri A + Super 1</span></div></div></div>
+    <div class="hk"><div class="hk-pp">#18</div><div class="hk-body"><div class="hk-name">Further Ado</div><div class="hk-meta">6-1 · Post 18 · Cox / Velazquez<br>Field-best 108 Beyer · Blue Grass W by 11L<br>Post 18 is the risk — form is elite</div><div><span class="hk-role th-hedge">Hedge — Trifecta C box only</span></div></div></div>
+    <div class="hk"><div class="hk-pp">#19</div><div class="hk-body"><div class="hk-name">Great White ⚡</div><div class="hk-meta">29-1 · Post 19 · Late entry · 1,300lb gray<br>Turfway 2W · beat Fulleffort<br>Scarcity bomb — near-zero pool inclusion</div><div><span class="hk-role th-bomb">Scarcity bomb — Superfecta 2 only</span></div></div></div>
   </div>
 
   <div class="purple-call">
-    <p><strong>Why Great White is still on a ticket at 29-1:</strong> He shortened from 50-1 to 29-1 as the Rich Strike story got out — but 29-1 still means he'll be in a minority of trifecta and superfecta tickets. His Superfecta 2 box costs $12. If he hits the board with our other three core horses, the payout is enormous. He stays on the bomb ticket. The $12 cost is fully justified by the asymmetric upside.</p>
+    <p><strong>The Puma scratch and Chief Wallabee:</strong> Chief Wallabee is not a consolation prize — he was our #2 composite pick all week. The scratch simply elevates him from "underneath horse" to "co-key." Blinkers being added for the first time is a significant equipment change that Bill Mott has used successfully before. He won the Fountain of Youth with Chief Wallabee 2nd, beaten only by Commandment. If the pace gets contested early, he's got every reason to fire late.</p>
   </div>
 </section>
 
 <!-- TICKETS -->
 
 <section>
-  <div class="slabel">The Bets · Final</div>
-  <h2>Six tickets · $66 total · Race 11 · Post 6:57 PM ET</h2>
-  <p>Unchanged from yesterday's structure. Only update: Great White moves from post 20 to <strong>post 19</strong> on all tickets. Everything else identical.</p>
+  <div class="slabel">The Bets · Race Day Final</div>
+  <h2>Six tickets · $66 total · Race 11 · 6:57 PM ET</h2>
+  <p>Chief Wallabee replaces The Puma on all tickets. Everything else unchanged. Post 19 Great White remains the scarcity bomb on Superfecta 2.</p>
 
   <div class="tgrid">
     <div class="ticket best">
       <div class="t-type">Trifecta A · Core ticket</div>
-      <div class="t-name">Key #14 Emerging Market / box #6, #12, #7</div>
+      <div class="t-name">Key #15 Emerging Market / box #6, #12, #7</div>
       <div class="t-horses">
-        <span class="th th-key">#14 Emerging Market</span>
+        <span class="th th-key">#15 Emerging Market</span>
         <span style="color:var(--text-dim);font-size:11px;align-self:center;">/ box</span>
         <span class="th th-scar">#6 Commandment</span>
         <span class="th th-long">#12 Chief Wallabee</span>
@@ -363,85 +384,85 @@ table{font-size:11px;}thead th,tbody td{padding:5px 6px;}
       </div>
       <div class="t-foot">
         <div class="t-cost">6 combos · $2 each<strong>$12.00</strong></div>
-        <div class="t-say">"Trifecta, key #14 on top, box #6 #12 #7, two dollars"</div>
+        <div class="t-say">"Trifecta, key #15 on top, box #6 #12 #7, two dollars"</div>
       </div>
     </div>
 
 ```
 <div class="ticket">
   <div class="t-type">Exacta · Race 11</div>
-  <div class="t-name">Key #14 over #6, #9, #12</div>
+  <div class="t-name">Key #15 over #6, #12, #7</div>
   <div class="t-horses">
-    <span class="th th-key">#14</span>
+    <span class="th th-key">#15</span>
     <span style="color:var(--text-dim);font-size:11px;align-self:center;">→</span>
     <span class="th th-scar">#6</span>
-    <span class="th th-long">#9</span>
     <span class="th th-long">#12</span>
+    <span class="th th-long">#7</span>
   </div>
   <div class="t-foot">
     <div class="t-cost">3 combos · $4 each<strong>$12.00</strong></div>
-    <div class="t-say">"Exacta, key #14, #6 #9 #12 underneath, four dollars"</div>
+    <div class="t-say">"Exacta, key #15, #6 #12 #7 underneath, four dollars"</div>
   </div>
 </div>
 
 <div class="ticket">
   <div class="t-type">Trifecta B · Commandment hedge</div>
-  <div class="t-name">Key #6 / #9 + #14 / #12, #7</div>
+  <div class="t-name">Key #6 / #15 + #12 / #7, #12</div>
   <div class="t-horses">
     <span class="th th-scar">#6</span>
     <span style="color:var(--text-dim);font-size:11px;align-self:center;">/</span>
-    <span class="th th-key">#9</span><span class="th th-long">#14</span>
+    <span class="th th-key">#15</span><span class="th th-long">#12</span>
     <span style="color:var(--text-dim);font-size:11px;align-self:center;">/</span>
-    <span class="th th-long">#12</span><span class="th th-long">#7</span>
+    <span class="th th-long">#7</span><span class="th th-long">#12</span>
   </div>
   <div class="t-foot">
     <div class="t-cost">4 combos · $1.50 each<strong>$6.00</strong></div>
-    <div class="t-say">Covers if Commandment beats Emerging Market</div>
+    <div class="t-say">Covers if Commandment wins over our value horses</div>
   </div>
 </div>
 
 <div class="ticket">
   <div class="t-type">Trifecta C · Further Ado hedge</div>
-  <div class="t-name">Box #17, #9, #6, #14</div>
+  <div class="t-name">Box #18, #6, #15, #12</div>
   <div class="t-horses">
-    <span class="th th-hedge">#17 Further Ado</span>
-    <span class="th th-scar">#9 The Puma</span>
+    <span class="th th-hedge">#18 Further Ado</span>
     <span class="th th-scar">#6 Commandment</span>
-    <span class="th th-key">#14 Emerging Mkt</span>
+    <span class="th th-key">#15 Emerging Mkt</span>
+    <span class="th th-long">#12 Chief Wallabee</span>
   </div>
   <div class="t-foot">
     <div class="t-cost">24 combos · $0.50 each<strong>$12.00</strong></div>
-    <div class="t-say">"Trifecta box #17 #9 #6 #14, fifty cents a combo"</div>
+    <div class="t-say">"Trifecta box #18 #6 #15 #12, fifty cents a combo"</div>
   </div>
 </div>
 
 <div class="ticket">
   <div class="t-type">Superfecta 1 · Core value box</div>
-  <div class="t-name">Box #14, #6, #12, #7</div>
+  <div class="t-name">Box #15, #6, #12, #7</div>
   <div class="t-horses">
-    <span class="th th-key">#14 Emerging Market</span>
+    <span class="th th-key">#15 Emerging Market</span>
     <span class="th th-scar">#6 Commandment</span>
     <span class="th th-long">#12 Chief Wallabee</span>
     <span class="th th-long">#7 Danon Bourbon</span>
   </div>
   <div class="t-foot">
     <div class="t-cost">24 combos · $0.50 each<strong>$12.00</strong></div>
-    <div class="t-say">"Superfecta box #14 #6 #12 #7, fifty cents a combo"</div>
+    <div class="t-say">"Superfecta box #15 #6 #12 #7, fifty cents a combo"</div>
   </div>
 </div>
 
 <div class="ticket bomb">
   <div class="t-type">Superfecta 2 · Scarcity bomb</div>
-  <div class="t-name">Box #19 Great White, #9, #14, #6</div>
+  <div class="t-name">Box #19 Great White, #15, #6, #12</div>
   <div class="t-horses">
     <span class="th th-bomb">#19 Great White ⚡</span>
-    <span class="th th-key">#14 Emerging Mkt</span>
+    <span class="th th-key">#15 Emerging Mkt</span>
     <span class="th th-scar">#6 Commandment</span>
-    <span class="th th-scar">#9 The Puma</span>
+    <span class="th th-long">#12 Chief Wallabee</span>
   </div>
   <div class="t-foot">
     <div class="t-cost">24 combos · $0.50 each<strong>$12.00</strong></div>
-    <div class="t-say">"Superfecta box #19 #14 #6 #9, fifty cents a combo"</div>
+    <div class="t-say">"Superfecta box #19 #15 #6 #12, fifty cents a combo"</div>
   </div>
 </div>
 ```
@@ -461,60 +482,59 @@ table{font-size:11px;}thead th,tbody td{padding:5px 6px;}
 
 <section>
   <div class="slabel">Quick Reference</div>
-  <h2>All six bets at a glance</h2>
-  <p>Use this on race day. Betting opens 9:00 AM ET tomorrow. Post time 6:57 PM ET.</p>
-  <div style="margin-top:16px;">
+  <h2>All six bets — race day final</h2>
+  <div style="margin-top:14px;">
     <div class="qr qr-feat">
       <div class="qr-badge qr-tri">Tri A</div>
       <div class="qr-body">
-        <div class="qr-name">Key #14 / box #6, #12, #7 · Core bet</div>
-        <div class="qr-taps">Type: <code>Trifecta</code> · Mode: <code>Key</code>/<code>KBX</code> · 1st: <code>#14</code> · 2nd+3rd: <code>#6 #12 #7</code> · Stake: <code>$2</code> · 6 combos = $12</div>
-        <div class="qr-say">"Trifecta, key #14 on top, box #6, #12, #7 for second and third, two dollars"</div>
+        <div class="qr-name">Key #15 / box #6, #12, #7 · Core bet</div>
+        <div class="qr-taps">Type: <code>Trifecta</code> · Mode: <code>Key</code>/<code>KBX</code> · 1st: <code>#15</code> · 2nd+3rd: <code>#6 #12 #7</code> · Stake: <code>$2</code> · 6 combos = $12</div>
+        <div class="qr-say">"Trifecta, key #15 on top, box #6, #12, #7 for second and third, two dollars"</div>
       </div>
       <div class="qr-cost">$12.00</div>
     </div>
     <div class="qr qr-feat">
       <div class="qr-badge qr-ex">Exacta</div>
       <div class="qr-body">
-        <div class="qr-name">Key #14 / #6, #9, #12</div>
-        <div class="qr-taps">Type: <code>Exacta</code> · Mode: <code>Key</code> · 1st: <code>#14</code> · 2nd: <code>#6 #9 #12</code> · Stake: <code>$4</code> · 3 combos = $12</div>
-        <div class="qr-say">"Exacta, key #14 on top, #6, #9, #12 underneath, four dollars each"</div>
+        <div class="qr-name">Key #15 / #6, #12, #7</div>
+        <div class="qr-taps">Type: <code>Exacta</code> · Mode: <code>Key</code> · 1st: <code>#15</code> · 2nd: <code>#6 #12 #7</code> · Stake: <code>$4</code> · 3 combos = $12</div>
+        <div class="qr-say">"Exacta, key #15 on top, #6, #12, #7 underneath, four dollars each"</div>
       </div>
       <div class="qr-cost">$12.00</div>
     </div>
     <div class="qr">
       <div class="qr-badge qr-tri">Tri B</div>
       <div class="qr-body">
-        <div class="qr-name">Part wheel — #6 / #9,#14 / #12,#7 · Commandment hedge</div>
-        <div class="qr-taps">Type: <code>Trifecta</code> · Mode: <code>Part Wheel</code>/<code>Wheel</code>(FD) · 1st: <code>#6</code> · 2nd: <code>#9 #14</code> · 3rd: <code>#12 #7</code> · Stake: <code>$1.50</code> · 4 combos = $6</div>
-        <div class="qr-say">"Trifecta part wheel, #6 on top, #9 and #14 second, #12 and #7 third, one fifty"</div>
+        <div class="qr-name">Part wheel — #6 / #15,#12 / #7,#12 · Commandment hedge</div>
+        <div class="qr-taps">Type: <code>Trifecta</code> · Mode: <code>Part Wheel</code>/<code>Wheel</code>(FD) · 1st: <code>#6</code> · 2nd: <code>#15 #12</code> · 3rd: <code>#7 #12</code> · Stake: <code>$1.50</code> · 4 combos = $6</div>
+        <div class="qr-say">"Trifecta part wheel, #6 on top, #15 and #12 second, #7 and #12 third, one fifty"</div>
       </div>
       <div class="qr-cost">$6.00</div>
     </div>
     <div class="qr qr-feat">
       <div class="qr-badge qr-tri">Tri C</div>
       <div class="qr-body">
-        <div class="qr-name">Box #17, #9, #6, #14 · Further Ado hedge</div>
-        <div class="qr-taps">Type: <code>Trifecta</code> · Mode: <code>Box</code> · Select: <code>#17 #9 #6 #14</code> · Stake: <code>$0.50</code> · 24 combos = $12</div>
-        <div class="qr-say">"Trifecta box #17, #9, #6, #14, fifty cents a combo"</div>
+        <div class="qr-name">Box #18, #6, #15, #12 · Further Ado hedge</div>
+        <div class="qr-taps">Type: <code>Trifecta</code> · Mode: <code>Box</code> · Select: <code>#18 #6 #15 #12</code> · Stake: <code>$0.50</code> · 24 combos = $12</div>
+        <div class="qr-say">"Trifecta box #18, #6, #15, #12, fifty cents a combo"</div>
       </div>
       <div class="qr-cost">$12.00</div>
     </div>
     <div class="qr qr-feat">
       <div class="qr-badge qr-sup">Super 1</div>
       <div class="qr-body">
-        <div class="qr-name">Box #14, #6, #12, #7 · Core value box</div>
-        <div class="qr-taps">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <code>#14 #6 #12 #7</code> · Stake: <code>$0.50</code> · 24 combos = $12</div>
-        <div class="qr-say">"Superfecta box #14, #6, #12, #7, fifty cents a combo"</div>
+        <div class="qr-name">Box #15, #6, #12, #7 · Core value box</div>
+        <div class="qr-taps">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <code>#15 #6 #12 #7</code> · Stake: <code>$0.50</code> · 24 combos = $12</div>
+        <div class="qr-say">"Superfecta box #15, #6, #12, #7, fifty cents a combo"</div>
       </div>
       <div class="qr-cost">$12.00</div>
     </div>
     <div class="qr qr-bomb">
       <div class="qr-badge qr-sup2">Super 2 ⚡</div>
       <div class="qr-body">
-        <div class="qr-name">Box #19, #14, #6, #9 · Great White scarcity bomb</div>
-        <div class="qr-taps">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <code>#19 #14 #6 #9</code> · Stake: <code>$0.50</code> · 24 combos = $12</div>
-        <div class="qr-say">"Superfecta box #19, #14, #6, #9, fifty cents a combo"</div>
+        <div class="qr-name">Box #19, #15, #6, #12 · Great White scarcity bomb</div>
+        <div class="qr-taps">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <code>#19 #15 #6 #12</code> · Stake: <code>$0.50</code> · 24 combos = $12</div>
+        <div class="qr-say">"Superfecta box #19, #15, #6, #12, fifty cents a combo"</div>
       </div>
       <div class="qr-cost">$12.00</div>
     </div>
@@ -530,13 +550,13 @@ table{font-size:11px;}thead th,tbody td{padding:5px 6px;}
   <div class="pa-banner">
     <div class="pa-icon">📍</div>
     <div class="pa-body">
-      <div class="pa-title">Betting from Pennsylvania on May 2 — all apps legal ✓</div>
-      <div class="pa-text">These apps use <strong>geolocation</strong> — not where you live, but where you physically are when placing the bet. As long as you're in Pennsylvania with location services on, you can bet. <strong>Turn off any VPN before opening the app.</strong> Betting opens 9:00 AM ET tomorrow.</div>
-      <div class="app-status">
-        <div class="app-stat"><div class="asdot"></div><div class="asname">DK Horse</div><div class="asstatus">✓ PA</div></div>
-        <div class="app-stat"><div class="asdot"></div><div class="asname">FanDuel Racing</div><div class="asstatus">✓ PA</div></div>
-        <div class="app-stat"><div class="asdot"></div><div class="asname">NYRA Bets</div><div class="asstatus">✓ PA</div></div>
-        <div class="app-stat"><div class="asdot"></div><div class="asname">Caesars Racebook</div><div class="asstatus">✓ PA</div></div>
+      <div class="pa-title">Betting from Pennsylvania tonight — all apps legal ✓</div>
+      <div class="pa-text">Apps use <strong>geolocation</strong> — where you physically are, not where you live. Location services on, <strong>VPN off</strong>, you're good to bet from anywhere in Pennsylvania.</div>
+      <div class="app-grid">
+        <div class="app-item"><div class="adot"></div><div class="aname">DK Horse</div><div class="astatus">✓ PA</div></div>
+        <div class="app-item"><div class="adot"></div><div class="aname">FanDuel Racing</div><div class="astatus">✓ PA</div></div>
+        <div class="app-item"><div class="adot"></div><div class="aname">NYRA Bets</div><div class="astatus">✓ PA</div></div>
+        <div class="app-item"><div class="adot"></div><div class="aname">Caesars Racebook</div><div class="astatus">✓ PA</div></div>
       </div>
     </div>
   </div>
@@ -549,89 +569,87 @@ table{font-size:11px;}thead th,tbody td{padding:5px 6px;}
   </div>
 
   <div id="app-dk" class="apane active">
-    <div class="app-hd"><div class="app-logo logo-dk">DK</div><div><div class="app-title">DraftKings Horse</div><div class="app-sub">iOS & Android · Search "DK Horse" · Legal in PA ✓</div></div></div>
+    <div class="app-hd"><div class="app-logo logo-dk">DK</div><div><div class="app-title">DraftKings Horse</div><div class="app-sub">iOS & Android · Search "DK Horse" · PA ✓</div></div></div>
     <ol class="steps">
-      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11</div><div class="step-d">Tap <code>Races</code> → <code>Today</code> → <strong>Churchill Downs</strong> → <strong>Race 11</strong> (post 6:57 PM ET). Confirm 20 horses including Great White at post 19.</div></div></li>
-      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Trifecta A — $12</div><div class="step-d">Type: <code>Trifecta</code> · Mode: <code>Key</code> · 1st: <strong>#14</strong> · 2nd+3rd: <strong>#6, #12, #7</strong> · Stake: <code>$2</code> · 6 combos = $12 · Submit.</div></div></li>
-      <li><div class="step-n">3</div><div class="step-b"><div class="step-t">Exacta — $12</div><div class="step-d">Type: <code>Exacta</code> · Mode: <code>Key</code> · 1st: <strong>#14</strong> · 2nd: <strong>#6, #9, #12</strong> · Stake: <code>$4</code> · 3 combos = $12 · Submit.</div></div></li>
-      <li><div class="step-n">4</div><div class="step-b"><div class="step-t">Trifecta B — $6</div><div class="step-d">Type: <code>Trifecta</code> · Mode: <code>Part Wheel</code> · 1st: <strong>#6</strong> · 2nd: <strong>#9, #14</strong> · 3rd: <strong>#12, #7</strong> · Stake: <code>$1.50</code> · 4 combos = $6 · Submit.</div></div></li>
-      <li><div class="step-n">5</div><div class="step-b"><div class="step-t">Trifecta C — $12</div><div class="step-d">Type: <code>Trifecta</code> · Mode: <code>Box</code> · Select: <strong>#17, #9, #6, #14</strong> · Stake: <code>$0.50</code> · 24 combos = $12 · Submit.</div></div></li>
-      <li><div class="step-n">6</div><div class="step-b"><div class="step-t">Superfecta 1 — $12</div><div class="step-d">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <strong>#14, #6, #12, #7</strong> · Stake: <code>$0.50</code> · 24 combos = $12 · Submit.</div></div></li>
-      <li><div class="step-n">7</div><div class="step-b"><div class="step-t">Superfecta 2 — $12 ⚡</div><div class="step-d">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <strong>#19, #14, #6, #9</strong> · Stake: <code>$0.50</code> · 24 combos = $12 · Submit.</div></div></li>
-      <li><div class="step-n">8</div><div class="step-b"><div class="step-t">Verify all 6 tickets</div><div class="step-d">Tap <code>Bet Slip</code> · confirm all six · total <strong>$66.00</strong> · screenshot for records.</div></div></li>
+      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11</div><div class="step-d">Tap <code>Races</code> → <code>Today</code> → <strong>Churchill Downs</strong> → <strong>Race 11</strong> (post 6:57 PM ET). Confirm 19 horses — The Puma is not in the field tonight.</div></div></li>
+      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Trifecta A — $12 (core ticket)</div><div class="step-d">Type: <code>Trifecta</code> · Mode: <code>Key</code> · 1st: <strong>#15</strong> · 2nd+3rd: <strong>#6, #12, #7</strong> · Stake: <code>$2</code> · 6 combos = $12 · Submit.</div></div></li>
+      <li><div class="step-n">3</div><div class="step-b"><div class="step-t">Exacta — $12</div><div class="step-d">Type: <code>Exacta</code> · Mode: <code>Key</code> · 1st: <strong>#15</strong> · 2nd: <strong>#6, #12, #7</strong> · Stake: <code>$4</code> · 3 combos = $12 · Submit.</div></div></li>
+      <li><div class="step-n">4</div><div class="step-b"><div class="step-t">Trifecta B — $6</div><div class="step-d">Type: <code>Trifecta</code> · Mode: <code>Part Wheel</code> · 1st: <strong>#6</strong> · 2nd: <strong>#15, #12</strong> · 3rd: <strong>#7, #12</strong> · Stake: <code>$1.50</code> · 4 combos = $6 · Submit.</div></div></li>
+      <li><div class="step-n">5</div><div class="step-b"><div class="step-t">Trifecta C — $12</div><div class="step-d">Type: <code>Trifecta</code> · Mode: <code>Box</code> · Select: <strong>#18, #6, #15, #12</strong> · Stake: <code>$0.50</code> · 24 combos = $12 · Submit.</div></div></li>
+      <li><div class="step-n">6</div><div class="step-b"><div class="step-t">Superfecta 1 — $12</div><div class="step-d">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <strong>#15, #6, #12, #7</strong> · Stake: <code>$0.50</code> · 24 combos = $12 · Submit.</div></div></li>
+      <li><div class="step-n">7</div><div class="step-b"><div class="step-t">Superfecta 2 — $12 ⚡</div><div class="step-d">Type: <code>Superfecta</code> · Mode: <code>Box</code> · Select: <strong>#19, #15, #6, #12</strong> · Stake: <code>$0.50</code> · 24 combos = $12 · Submit.</div></div></li>
+      <li><div class="step-n">8</div><div class="step-b"><div class="step-t">Verify all 6 tickets</div><div class="step-d">Tap <code>Bet Slip</code> · confirm all six · total <strong>$66.00</strong> · screenshot · turn off VPN in Pennsylvania.</div></div></li>
     </ol>
-    <div class="note"><strong>DK tip:</strong> Check <code>Probables</code> on race day. If Emerging Market is under 10% of trifecta pool inclusion, scarcity signal confirmed. Turn off VPN in Pennsylvania.</div>
+    <div class="note"><strong>DK tip:</strong> Check <code>Probables</code> before placing. If Emerging Market (#15) is above 20% of trifecta pool, consider switching the Trifecta A key to Chief Wallabee (#12) instead.</div>
   </div>
 
   <div id="app-fd" class="apane">
-    <div class="app-hd"><div class="app-logo logo-fd">FD</div><div><div class="app-title">FanDuel Racing</div><div class="app-sub">racing.fanduel.com · Separate from FanDuel Sportsbook · Live streams Derby free · PA ✓</div></div></div>
-    <div class="info" style="margin-bottom:14px;"><p><strong>Important:</strong> FanDuel Racing is separate from FanDuel Sportsbook. Search <strong>"FanDuel Racing"</strong> in the app store. Stream the Kentucky Derby free by tapping <code>Watch</code>. FanDuel calls Part Wheel <strong>"Wheel"</strong> — same thing.</p></div>
+    <div class="app-hd"><div class="app-logo logo-fd">FD</div><div><div class="app-title">FanDuel Racing</div><div class="app-sub">racing.fanduel.com · Separate from Sportsbook · Live streams Derby free · PA ✓</div></div></div>
+    <div class="info" style="margin-bottom:12px;"><p><strong>FanDuel Racing is separate from FanDuel Sportsbook.</strong> Search "FanDuel Racing" in the app store. Stream the Derby free by tapping <code>Watch</code>. FanDuel calls Part Wheel <strong>"Wheel"</strong>.</p></div>
     <ol class="steps">
-      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11</div><div class="step-d">Homepage → <strong>Churchill Downs</strong> → <strong>Race 11</strong>. Tap <code>Watch</code> to stream live.</div></div></li>
-      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Trifecta A — $12</div><div class="step-d">Tap <code>TR</code> → <code>Key</code> · 1st: <strong>#14</strong> · 2nd+3rd: <strong>#6, #12, #7</strong> · Stake: <code>$2</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">3</div><div class="step-b"><div class="step-t">Exacta — $12</div><div class="step-d">Tap <code>EX</code> → <code>Key</code> · 1st: <strong>#14</strong> · 2nd: <strong>#6, #9, #12</strong> · Stake: <code>$4</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">4</div><div class="step-b"><div class="step-t">Trifecta B — $6</div><div class="step-d">Tap <code>TR</code> → <code>Wheel</code> · 1st: <strong>#6</strong> · 2nd: <strong>#9, #14</strong> · 3rd: <strong>#12, #7</strong> · Stake: <code>$1.50</code> · Submit ($6).</div></div></li>
-      <li><div class="step-n">5</div><div class="step-b"><div class="step-t">Trifecta C — $12</div><div class="step-d">Tap <code>TR</code> → <code>Box</code> · Select: <strong>#17, #9, #6, #14</strong> · Stake: <code>$0.50</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">6</div><div class="step-b"><div class="step-t">Superfecta 1 — $12</div><div class="step-d">Tap <code>SU</code> → <code>Box</code> · Select: <strong>#14, #6, #12, #7</strong> · Stake: <code>$0.50</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">7</div><div class="step-b"><div class="step-t">Superfecta 2 — $12 ⚡</div><div class="step-d">Tap <code>SU</code> → <code>Box</code> · Select: <strong>#19, #14, #6, #9</strong> · Stake: <code>$0.50</code> · Submit ($12).</div></div></li>
+      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11</div><div class="step-d">Homepage → <strong>Churchill Downs</strong> → <strong>Race 11</strong>. Confirm 19 horses. Tap <code>Watch</code> to stream.</div></div></li>
+      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Trifecta A — $12</div><div class="step-d">Tap <code>TR</code> → <code>Key</code> · 1st: <strong>#15</strong> · 2nd+3rd: <strong>#6, #12, #7</strong> · Stake: <code>$2</code> · Submit ($12).</div></div></li>
+      <li><div class="step-n">3</div><div class="step-b"><div class="step-t">Exacta — $12</div><div class="step-d">Tap <code>EX</code> → <code>Key</code> · 1st: <strong>#15</strong> · 2nd: <strong>#6, #12, #7</strong> · Stake: <code>$4</code> · Submit ($12).</div></div></li>
+      <li><div class="step-n">4</div><div class="step-b"><div class="step-t">Trifecta B — $6</div><div class="step-d">Tap <code>TR</code> → <code>Wheel</code> · 1st: <strong>#6</strong> · 2nd: <strong>#15, #12</strong> · 3rd: <strong>#7, #12</strong> · Stake: <code>$1.50</code> · Submit ($6).</div></div></li>
+      <li><div class="step-n">5</div><div class="step-b"><div class="step-t">Trifecta C — $12</div><div class="step-d">Tap <code>TR</code> → <code>Box</code> · Select: <strong>#18, #6, #15, #12</strong> · Stake: <code>$0.50</code> · Submit ($12).</div></div></li>
+      <li><div class="step-n">6</div><div class="step-b"><div class="step-t">Superfecta 1 — $12</div><div class="step-d">Tap <code>SU</code> → <code>Box</code> · Select: <strong>#15, #6, #12, #7</strong> · Stake: <code>$0.50</code> · Submit ($12).</div></div></li>
+      <li><div class="step-n">7</div><div class="step-b"><div class="step-t">Superfecta 2 — $12 ⚡</div><div class="step-d">Tap <code>SU</code> → <code>Box</code> · Select: <strong>#19, #15, #6, #12</strong> · Stake: <code>$0.50</code> · Submit ($12).</div></div></li>
     </ol>
-    <div class="note"><strong>FD tip:</strong> Check <code>Will Pays</code> for live payout estimates. Stream Derby free with <code>Watch</code>.</div>
+    <div class="note"><strong>FD tip:</strong> Check <code>Will Pays</code> for live payouts. Stream free with <code>Watch</code>.</div>
   </div>
 
   <div id="app-ny" class="apane">
     <div class="app-hd"><div class="app-logo logo-ny">NB</div><div><div class="app-title">NYRA Bets</div><div class="app-sub">nyrabets.com · 30+ states · PA ✓</div></div></div>
     <ol class="steps">
-      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11</div><div class="step-d">Tap <code>Races</code> → <code>Today's Races</code> → <strong>Churchill Downs</strong> → <strong>Race 11</strong>. Confirm Great White at post 19.</div></div></li>
-      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Trifecta A — $12</div><div class="step-d">Type: <code>Trifecta</code> · <code>Key</code> or <code>KBX</code> · 1st: <strong>#14</strong> · 2nd+3rd: <strong>#6, #12, #7</strong> · Amount: <code>$2</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">3</div><div class="step-b"><div class="step-t">Exacta — $12</div><div class="step-d">Type: <code>Exacta</code> · Key · 1st: <strong>#14</strong> · 2nd: <strong>#6, #9, #12</strong> · Amount: <code>$4</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">4</div><div class="step-b"><div class="step-t">Trifecta B — $6</div><div class="step-d">Type: <code>Trifecta</code> · <code>Part Wheel</code> · 1st: <strong>#6</strong> · 2nd: <strong>#9, #14</strong> · 3rd: <strong>#12, #7</strong> · Amount: <code>$1.50</code> · Submit ($6).</div></div></li>
-      <li><div class="step-n">5</div><div class="step-b"><div class="step-t">Trifecta C — $12</div><div class="step-d">Type: <code>Trifecta</code> · <code>Box</code> · Select: <strong>#17, #9, #6, #14</strong> · Amount: <code>$0.50</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">6</div><div class="step-b"><div class="step-t">Superfecta 1 — $12</div><div class="step-d">Type: <code>Superfecta</code> · <code>Box</code> · Select: <strong>#14, #6, #12, #7</strong> · Amount: <code>$0.50</code> · Submit ($12).</div></div></li>
-      <li><div class="step-n">7</div><div class="step-b"><div class="step-t">Superfecta 2 — $12 ⚡</div><div class="step-d">Type: <code>Superfecta</code> · <code>Box</code> · Select: <strong>#19, #14, #6, #9</strong> · Amount: <code>$0.50</code> · Submit ($12).</div></div></li>
+      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11</div><div class="step-d">Tap <code>Races</code> → <code>Today's Races</code> → <strong>Churchill Downs</strong> → <strong>Race 11</strong>. Confirm 19 horses.</div></div></li>
+      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Trifecta A — $12</div><div class="step-d">Type: <code>Trifecta</code> · <code>Key</code> or <code>KBX</code> · 1st: <strong>#15</strong> · 2nd+3rd: <strong>#6, #12, #7</strong> · Amount: <code>$2</code> · Submit.</div></div></li>
+      <li><div class="step-n">3</div><div class="step-b"><div class="step-t">Exacta — $12</div><div class="step-d">Type: <code>Exacta</code> · Key · 1st: <strong>#15</strong> · 2nd: <strong>#6, #12, #7</strong> · Amount: <code>$4</code> · Submit.</div></div></li>
+      <li><div class="step-n">4</div><div class="step-b"><div class="step-t">Trifecta B — $6</div><div class="step-d">Type: <code>Trifecta</code> · <code>Part Wheel</code> · 1st: <strong>#6</strong> · 2nd: <strong>#15, #12</strong> · 3rd: <strong>#7, #12</strong> · Amount: <code>$1.50</code> · Submit.</div></div></li>
+      <li><div class="step-n">5</div><div class="step-b"><div class="step-t">Trifecta C — $12</div><div class="step-d">Type: <code>Trifecta</code> · <code>Box</code> · Select: <strong>#18, #6, #15, #12</strong> · Amount: <code>$0.50</code> · Submit.</div></div></li>
+      <li><div class="step-n">6</div><div class="step-b"><div class="step-t">Superfecta 1 — $12</div><div class="step-d">Type: <code>Superfecta</code> · <code>Box</code> · Select: <strong>#15, #6, #12, #7</strong> · Amount: <code>$0.50</code> · Submit.</div></div></li>
+      <li><div class="step-n">7</div><div class="step-b"><div class="step-t">Superfecta 2 — $12 ⚡</div><div class="step-d">Type: <code>Superfecta</code> · <code>Box</code> · Select: <strong>#19, #15, #6, #12</strong> · Amount: <code>$0.50</code> · Submit.</div></div></li>
     </ol>
-    <div class="note"><strong>NYRA tip:</strong> Check <code>Probables</code> for live payouts. Use <code>KBX</code> if <code>Key</code> not visible. <code>Swap Position</code> to mirror columns quickly when building part wheels.</div>
+    <div class="note"><strong>NYRA tip:</strong> Use <code>KBX</code> if <code>Key</code> not visible. Check <code>Probables</code> for live payouts.</div>
   </div>
 
   <div id="app-cae" class="apane">
-    <div class="app-hd"><div class="app-logo logo-cae">CR</div><div><div class="app-title">Caesars Racebook</div><div class="app-sub">Powered by NYRA Bets · Separate from Caesars Sportsbook · Earns Rewards · PA ✓</div></div></div>
-    <div class="info" style="margin-bottom:14px;"><p><strong>Important:</strong> Search <strong>"Caesars Racebook"</strong> — NOT "Caesars Sportsbook." Separate app. Interface identical to NYRA Bets. Every wager earns Caesars Rewards points.</p></div>
+    <div class="app-hd"><div class="app-logo logo-cae">CR</div><div><div class="app-title">Caesars Racebook</div><div class="app-sub">Powered by NYRA Bets · Separate app · Earns Rewards · PA ✓</div></div></div>
+    <div class="info" style="margin-bottom:12px;"><p><strong>Search "Caesars Racebook"</strong> — not "Caesars Sportsbook." Interface identical to NYRA Bets. Every wager earns Caesars Rewards points.</p></div>
     <ol class="steps">
-      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11</div><div class="step-d">Tap <code>Races</code> → <code>Today</code> → <strong>Churchill Downs</strong> → <strong>Race 11</strong>.</div></div></li>
-      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Place all six bets</div><div class="step-d">
-        <strong>Tri A:</strong> Key → 1st: <code>#14</code> → 2nd+3rd: <code>#6 #12 #7</code> → $2 → Submit ($12)<br><br>
-        <strong>Exacta:</strong> Key → 1st: <code>#14</code> → 2nd: <code>#6 #9 #12</code> → $4 → Submit ($12)<br><br>
-        <strong>Tri B:</strong> Part Wheel → 1st: <code>#6</code> → 2nd: <code>#9 #14</code> → 3rd: <code>#12 #7</code> → $1.50 → Submit ($6)<br><br>
-        <strong>Tri C:</strong> Box → <code>#17 #9 #6 #14</code> → $0.50 → Submit ($12)<br><br>
-        <strong>Super 1:</strong> Box → <code>#14 #6 #12 #7</code> → $0.50 → Submit ($12)<br><br>
-        <strong>Super 2 ⚡:</strong> Box → <code>#19 #14 #6 #9</code> → $0.50 → Submit ($12)
+      <li><div class="step-n">1</div><div class="step-b"><div class="step-t">Find Churchill Downs Race 11 · Place all six bets</div><div class="step-d">
+        <strong>Tri A:</strong> Key → 1st: <code>#15</code> → 2nd+3rd: <code>#6 #12 #7</code> → $2 → Submit ($12)<br><br>
+        <strong>Exacta:</strong> Key → 1st: <code>#15</code> → 2nd: <code>#6 #12 #7</code> → $4 → Submit ($12)<br><br>
+        <strong>Tri B:</strong> Part Wheel → 1st: <code>#6</code> → 2nd: <code>#15 #12</code> → 3rd: <code>#7 #12</code> → $1.50 → Submit ($6)<br><br>
+        <strong>Tri C:</strong> Box → <code>#18 #6 #15 #12</code> → $0.50 → Submit ($12)<br><br>
+        <strong>Super 1:</strong> Box → <code>#15 #6 #12 #7</code> → $0.50 → Submit ($12)<br><br>
+        <strong>Super 2 ⚡:</strong> Box → <code>#19 #15 #6 #12</code> → $0.50 → Submit ($12)
       </div></div></li>
-      <li><div class="step-n">3</div><div class="step-b"><div class="step-t">Verify in My Bets</div><div class="step-d">All 6 tickets · total <strong>$66.00</strong> · screenshot · check <code>Will Pays</code> on race day.</div></div></li>
+      <li><div class="step-n">2</div><div class="step-b"><div class="step-t">Verify in My Bets</div><div class="step-d">All 6 tickets · total <strong>$66.00</strong> · screenshot · check <code>Will Pays</code> at post time.</div></div></li>
     </ol>
-    <div class="note"><strong>Caesars tip:</strong> Check <code>Will Pays</code> for live exotic estimates. Every dollar earns Caesars Rewards Tier Credits.</div>
   </div>
 </section>
 
 <!-- HONEST LIMITS -->
 
 <section>
-  <div class="slabel">Honest Limitations</div>
-  <h2>What the formula doesn't know</h2>
-  <div class="warn"><p><strong>Further Ado's post 17 has NEVER produced a Derby winner in 46 attempts.</strong> That's the honest stat. His 108 Beyer is the best figure in the field. He's in Trifecta C because the formula can't ignore that figure — but post 17 is a genuine concern, not just a talking point.</p></div>
-  <div class="warn"><p><strong>Renegade has a quarter crack.</strong> Pletcher has been transparent about it. He's also the talent in the race. The formula skips him on pool saturation + post + health — but he's a real horse.</p></div>
-  <div class="warn"><p><strong>Emerging Market at 11-1 has lost scarcity.</strong> He was 15-1 a week ago. The public found him. His composite still leads the field but his value has compressed. Check his trifecta pool inclusion on your app — if he's above 20% of tickets, consider whether to keep him keyed or move to Commandment.</p></div>
-  <div class="warn"><p><strong>Great White at 29-1 is still a lottery ticket.</strong> He shortened from 50-1 as the Rich Strike story spread. His $12 superfecta box is fully justified but don't put more money on him than you'd be comfortable losing entirely.</p></div>
-  <p style="margin-top:16px;">Check live <code>Will Pays</code> or <code>Probables</code> on your app at post time. Good luck. 🌹</p>
+  <div class="slabel">Honest Read</div>
+  <h2>Going into post time</h2>
+  <div class="warn"><p><strong>This is the widest-open Derby in years.</strong> Six horses with single-digit odds — Renegade, Commandment, So Happy, Further Ado, Chief Wallabee, Emerging Market. The formula's edge is that Chief Wallabee and Emerging Market are still the least-bet of that group.</p></div>
+  <div class="warn"><p><strong>Further Ado's 108 Beyer is the best figure in the field.</strong> Post 17 has never produced a Derby winner. He's in Trifecta C because the formula can't ignore that performance. If he gets a clean trip wide he could wire the field.</p></div>
+  <div class="warn"><p><strong>Renegade is a legitimate 5-1.</strong> Pletcher has a quarter crack concern he's been open about. The formula skips him on pool saturation + post history. If he wins you cash nothing from Trifectas A, B, or the exacta — Trifecta C does not include him.</p></div>
+  <div class="warn"><p><strong>Great White at 29-1</strong> is still a scarcity play on Superfecta 2. He shortened from 50-1 but 29-1 still means most people don't have him. The $12 box is fully justified. Do not put more on him than this.</p></div>
+  <p style="margin-top:14px;">Check live <code>Will Pays</code> or <code>Probables</code> on your app right now. If Emerging Market is above 20% of trifecta pool, consider swapping the Trifecta A key to Chief Wallabee. Good luck tonight. 🌹</p>
 </section>
 
 <footer>
   <div class="foot-inner">
     <div>
       <div class="foot-brand">Value Bet Formula</div>
-      <div class="foot-meta">Final field · Updated May 1 2026 · 3 scratches · Great White post 19 · $66 total</div>
-      <div class="foot-disc">For informational and entertainment purposes only. Never bet more than you can afford to lose. Must be 21+ where pari-mutuel wagering is legal. Turn off VPN when betting. Problem gambling? Call 1-800-GAMBLER.</div>
+      <div class="foot-meta">Race day final · May 2 2026 · 4 scratches · 19 horses · Chief Wallabee replaces The Puma</div>
+      <div class="foot-disc">For informational and entertainment purposes only. Never bet more than you can afford to lose. Must be 21+ where pari-mutuel wagering is legal. Turn off VPN. Problem gambling? Call 1-800-GAMBLER.</div>
     </div>
     <div>
-      <div class="pt-label">Post time</div>
+      <div class="pt-label">Post time tonight</div>
       <div class="pt-time">6:57 PM ET</div>
       <div class="pt-date">Saturday, May 2, 2026</div>
       <div class="pt-date" style="margin-top:3px;">NBC & Peacock</div>
